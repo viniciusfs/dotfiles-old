@@ -4,6 +4,8 @@
 set nocompatible
 set backspace=indent,eol,start
 
+set title
+
 syntax on
 
 " Set a nice color scheme while running GVim
