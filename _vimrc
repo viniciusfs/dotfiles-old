@@ -21,6 +21,7 @@ filetype plugin on
 
 set ruler
 set guioptions-=T
+set guioptions-=m
 set completeopt-=preview
 set gcr=a:blinkon0
 if has("gui_running")
