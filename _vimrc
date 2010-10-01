@@ -12,7 +12,9 @@ syntax on
 if has("gui_running")
   colorscheme fruity
 else
-  colorscheme evening
+   " Force 256 color support 
+   set t_Co=256
+   colorscheme jellybeans
 endif
 
 " Enable filetype plugins and indention
