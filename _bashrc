@@ -1,0 +1,53 @@
+# .bashrc file
+# Vinícius Figueiredo <viniciusfs@gmail.com>
+
+
+# If not running interactively, don't do anything.
+[ -z "$PS1" ] && return
+
+
+# Don't put duplicate lines in the history.
+HISTCONTROL=ignoredups:ignorespace
+
+# Append to the history file, don't overwrite it.
+shopt -s histappend
+
+# For setting history length.
+HISTSIZE=1000
+HISTFILESIZE=2000
+
+
+# Check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+
+# Alias definitions.
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+
+# Bash completions.
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+    . /etc/bash_completion
+fi
+
+
+# Put ~/bin on PATH.
+if [ -d $HOME/bin ]; then
+    PATH="$HOME/bin:$PATH"
+fi
+
+
+# Set vim as EDITOR.
+HAVE_VIM=$(which vim)
+if [ -n $HAVE_VIM ]; then
+    EDITOR=vim
+    export EDITOR
+fi
+
+
+# Virtualenv Wrapper settings.
+export WORKON_HOME=$HOME/Code/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
