@@ -49,5 +49,7 @@ fi
 
 
 # Virtualenv Wrapper settings.
-export WORKON_HOME=$HOME/Code/.virtualenvs
+export CODE_DIR=$HOME/Code
+export WORKON_HOME=$CODE_DIR/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
+
