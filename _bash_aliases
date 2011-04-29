@@ -20,3 +20,5 @@ alias l='ls -CF'
 alias cdprj='cd $PROJECT_PATH'
 
 alias t='todo.sh'
+
+alias mame='$(which mame) -rp "/home/vinicius/Games/Arcade/MAME 0.141" $1'
