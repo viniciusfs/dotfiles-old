@@ -75,4 +75,4 @@ autocmd FileType markdown setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=
 au! Bufread,BufNewFile *.pdc    set filetype=pdc
 
 " Spellchecker for portuguese language, it needs ~/.vim/spell/pt.utf-8.spl file.
-" set spell spelllang=pt
+set spell spelllang=pt

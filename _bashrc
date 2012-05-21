@@ -53,3 +53,7 @@ export CODE_DIR=$HOME/Code
 export WORKON_HOME=$CODE_DIR/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
 
+# Go lang on $PATH
+export GOROOT=/usr/local/go
+export PATH=$PATH:$GOROOT/bin
+
