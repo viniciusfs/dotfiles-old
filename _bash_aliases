@@ -16,13 +16,10 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
-# $PROJECT_PATH is set on virtualenv activation
-alias cdprj='cd $PROJECT_PATH'
-
 alias t='todo.sh'
 
 alias mame='$(which mame) -rp "/home/vinicius/Games/Arcade/roms" $1'
 
 alias startvm='$(which VBoxManage) startvm -type headless Oitobits_Dev'
 
-alias sshtunnel='$(ssh -c 3des -D 10081 oitobits.net)'
+alias sshtunnel='ssh -fNL 127.0.0.2:58846:localhost:58846 -D 10081 oitobits.net'

@@ -1,7 +1,6 @@
 # .bashrc file
 # Vinícius Figueiredo <viniciusfs@gmail.com>
 
-
 # If not running interactively, don't do anything.
 [ -z "$PS1" ] && return
 
@@ -33,6 +32,10 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+# Functions
+if [ -f ~/.functions ]; then
+    . ~/.functions
+fi
 
 # Put ~/bin on PATH.
 if [ -d $HOME/bin ]; then
@@ -49,8 +52,8 @@ fi
 
 
 # Virtualenv Wrapper settings.
-export CODE_DIR=$HOME/Code
-export WORKON_HOME=$CODE_DIR/.virtualenvs
+export PROJECT_HOME=$HOME/Code
+export WORKON_HOME=$PROJECT_HOME/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
 
 # Go lang on $PATH

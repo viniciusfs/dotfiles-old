@@ -3,7 +3,6 @@
 
 set nocompatible
 set backspace=indent,eol,start
-
 set title
 
 syntax on
@@ -45,7 +44,7 @@ set smarttab
 set tabstop=8
 
 " File encoding and format
-set enc=utf-8
+set encoding=utf-8
 set fileformats=unix,dos,mac
 
 " Python
@@ -65,6 +64,9 @@ autocmd FileType css setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
 " HTML
 autocmd FileType html,xhtml,xml setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
 
+" JavaScript
+autocmd FileType javascript setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
+
 " vim
 autocmd FileType vim setlocal expandtab shiftwidth=2 tabstop=8 softtabstop=2
 
@@ -75,4 +77,4 @@ autocmd FileType markdown setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=
 au! Bufread,BufNewFile *.pdc    set filetype=pdc
 
 " Spellchecker for portuguese language, it needs ~/.vim/spell/pt.utf-8.spl file.
-set spell spelllang=pt
+" set spell spelllang=pt
