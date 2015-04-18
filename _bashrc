@@ -20,6 +20,7 @@ HISTFILESIZE=2000
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
+export PS1="\u@\h:\w \$ "
 
 # Alias definitions.
 if [ -f ~/.bash_aliases ]; then
@@ -54,7 +55,14 @@ fi
 # Virtualenv Wrapper settings.
 export PROJECT_HOME=$HOME/Code
 export WORKON_HOME=$PROJECT_HOME/.virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
+
+distro_version=$(lsb_release -si)
+if [ ${distro_version} == 'Ubuntu' ]; then
+    source /usr/local/bin/virtualenvwrapper.sh
+elif [ ${distro_version} == 'CentOs' ]; then
+    source /usr/bin/virtualenvwrapper.sh
+fi
+unset distro_version
 
 # Go lang on $PATH
 export GOROOT=/usr/local/go

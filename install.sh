@@ -21,7 +21,7 @@ for file in _*; do
 		if [ ! -d ${BACKUP_DIR} ]; then
 			mkdir ${BACKUP_DIR}
 		fi
-		cp -Hr ${target} ${BACKUP_DIR}/${file/_/.}
+		mv ${target} ${BACKUP_DIR}/${file/_/.}
 	fi
 	
 	ln -sf ${source} ${target}
