@@ -59,7 +59,7 @@ export WORKON_HOME=$PROJECT_HOME/.virtualenvs
 distro_version=$(lsb_release -si)
 if [ ${distro_version} == 'Ubuntu' ]; then
     source /usr/local/bin/virtualenvwrapper.sh
-elif [ ${distro_version} == 'CentOs' ]; then
+elif [ ${distro_version} == 'CentOS' ]; then
     source /usr/bin/virtualenvwrapper.sh
 fi
 unset distro_version
