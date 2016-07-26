@@ -14,7 +14,7 @@ shopt -s histappend
 # For setting history length.
 HISTSIZE=1000
 HISTFILESIZE=2000
-
+HISTTIMEFORMAT="%d/%m/%y %T "
 
 # Check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -60,6 +60,8 @@ distro_version=$(lsb_release -si)
 if [ ${distro_version} == 'Ubuntu' ]; then
     source /usr/local/bin/virtualenvwrapper.sh
 elif [ ${distro_version} == 'CentOS' ]; then
+    source /usr/bin/virtualenvwrapper.sh
+elif [ ${distro_version} == 'Fedora' ]; then
     source /usr/bin/virtualenvwrapper.sh
 fi
 unset distro_version

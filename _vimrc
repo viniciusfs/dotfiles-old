@@ -1,80 +1,111 @@
 " .vimrc file
 " Vinicius Figueiredo <viniciusfs@gmail.com>
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" begin Vundle.vim setup - https://github.com/VundleVim/Vundle.vim
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+
 set nocompatible
+filetype off
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Bundle 'VundleVim/Vundle.vim'
+
+
+" list of plugins
+
+" python code folding for Vim
+Plugin 'tmhedberg/SimpylFold'
+" python code indentation script
+Plugin 'vim-scripts/indentpython.vim'
+" python PEP8 syntax and style checker, requires 'python2-flake8', run with F7
+Plugin 'nvie/vim-flake8'
+
+" whitespace highlighting - to clean extra whitespace call :StripWhitespace
+Plugin 'ntpeters/vim-better-whitespace'
+
+" syntax highlighting
+Plugin 'pearofducks/ansible-vim'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+
+" NERDtree
+Plugin 'scrooloose/nerdtree'
+
+" color schemes, term
+Plugin 'tyrannicaltoucan/vim-deep-space'
+Plugin 'vim-scripts/jellybeans.vim'
+Plugin 'fxn/vim-monochrome'
+
+" color schemes, gui
+Plugin 'altercation/vim-colors-solarized'
+
+call vundle#end()
+
+filetype plugin indent on
+" end of Vundle.vim setup
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 set backspace=indent,eol,start
 set title
 
 syntax on
 
-" Set a nice color scheme while running GVim
-if has("gui_running")
-  colorscheme fruity
-else
-   " Force 256 color support 
-   set t_Co=256
-   colorscheme jellybeans
-endif
-
-" Enable filetype plugins and indention
+" enable filetype plugins and indention
 filetype on
 filetype plugin on
 
-set ruler
-set guioptions-=T
-set guioptions-=m
-set completeopt-=preview
-set gcr=a:blinkon0
-if has("gui_running")
-  set cursorline
+" set color scheme
+if has('gui_running')
+  set background=dark
+  colorscheme solarized
+else
+  set t_Co=256
+  colorscheme deep-space
 endif
-
-set smartindent
 
 set cmdheight=2
 set laststatus=2
 set statusline=[%l,%v\ %P%M]\ %f\ %r%h%w\ (%{&ff})
 set showcmd
 
-" Line numbers, F2 to enable/disable
+" line numbers, F2 to enable/disable
 set number
 nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
 
-set smarttab
-set tabstop=8
+" split navigations
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
-" File encoding and format
+" enable folding with spacebar
+set foldmethod=indent
+set foldlevel=99
+nnoremap <space> za
+
+" Map NERDtree to CTRL+n
+nnoremap <C-n> :NERDTreeToggle<CR>
+
+" file encoding and format
 set encoding=utf-8
 set fileformats=unix,dos,mac
 
-" Python
-autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=8
-\ formatoptions+=croq softtabstop=4 smartindent
-\ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
+
+" python
+au BufNewFile,BufRead *.py
+  \ set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 |
+  \ set expandtab autoindent fileformat=unix
 let python_highlight_all=1
-let python_highlight_exceptions=0
-let python_highlight_builtins=0
 
-" PHP
-autocmd FileType php setlocal shiftwidth=8 tabstop=8 softtabstop=8
 
-" CSS
-autocmd FileType css setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
-
-" HTML
-autocmd FileType html,xhtml,xml setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
-
-" JavaScript
-autocmd FileType javascript setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
-
-" vim
-autocmd FileType vim setlocal expandtab shiftwidth=2 tabstop=8 softtabstop=2
-
-" Markdown
-autocmd FileType markdown setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
-
-" Pandoc
-au! Bufread,BufNewFile *.pdc    set filetype=pdc
-
-" Spellchecker for portuguese language, it needs ~/.vim/spell/pt.utf-8.spl file.
-" set spell spelllang=pt
+" HTML, CSS and JavaScript
+au BufNewFile,BufRead *.js, *.html, *.css
+  \ set tabstop=2 softtabstop=2 shiftwidth=2
