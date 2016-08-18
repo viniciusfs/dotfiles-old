@@ -1,6 +1,6 @@
 " .vimrc file
 " Vinicius Figueiredo <viniciusfs@gmail.com>
-"
+" Qui Ago 18 13:19:11 BRT 2016
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " begin Vundle.vim setup - https://github.com/VundleVim/Vundle.vim
 " :PluginList       - lists configured plugins
@@ -18,27 +18,22 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Bundle 'VundleVim/Vundle.vim'
 
-
 " list of plugins
-
+"
 " python code folding for Vim
 Plugin 'tmhedberg/SimpylFold'
 " python code indentation script
 Plugin 'vim-scripts/indentpython.vim'
 " python PEP8 syntax and style checker, requires 'python2-flake8', run with F7
 Plugin 'nvie/vim-flake8'
-
 " whitespace highlighting - to clean extra whitespace call :StripWhitespace
 Plugin 'ntpeters/vim-better-whitespace'
-
 " syntax highlighting
 Plugin 'pearofducks/ansible-vim'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
-
-" NERDtree
+" NERDtree, file browser
 Plugin 'scrooloose/nerdtree'
-
 " color schemes, term
 Plugin 'tyrannicaltoucan/vim-deep-space'
 Plugin 'vim-scripts/jellybeans.vim'
@@ -119,7 +114,6 @@ au BufNewFile,BufRead *.py
   \ set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 |
   \ set expandtab autoindent fileformat=unix
 let python_highlight_all=1
-
 
 " HTML, CSS and JavaScript
 au BufNewFile,BufRead *.js, *.html, *.css
