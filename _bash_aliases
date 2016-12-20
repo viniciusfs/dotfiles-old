@@ -1,7 +1,6 @@
 # .bash_aliases file
 # Vinicius Figueiredo <viniciusfs@gmail.com>
 
-
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -16,12 +15,5 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
-alias t='todo.sh'
-
-alias mame='$(which mame) -rp "/home/vinicius/Games/Arcade/roms" $1'
-
-alias startvm='$(which VBoxManage) startvm -type headless Oitobits_Dev'
-
 alias sshtunnel='ssh -fNL 127.0.0.2:58846:localhost:58846 -D 10081 oitobits.net'
-
-alias rescan='sudo php /var/www/cloud.oitobits.net/owncloud/console.php files:scan --all'
+alias packer.io='${HOME}/bin/packer'

@@ -40,7 +40,7 @@ fi
 
 # Put ~/bin on PATH.
 if [ -d $HOME/bin ]; then
-    PATH="$HOME/bin:$PATH"
+    PATH="$PATH:$HOME/bin"
 fi
 
 

@@ -6,7 +6,7 @@
 # Creates links on $HOME to all files starting with _ on current directory.
 # Underscores are replaced by dots on link file name. If a file already
 # exists it will be copied to $BACKUP_DIR before link creation.
-# 
+#
 # Vinicius Figueiredo <viniciusfs@gmail.com>
 #
 
@@ -23,6 +23,6 @@ for file in _*; do
 		fi
 		mv ${target} ${BACKUP_DIR}/${file/_/.}
 	fi
-	
+
 	ln -sf ${source} ${target}
 done

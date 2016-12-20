@@ -32,6 +32,10 @@ Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'pearofducks/ansible-vim'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
+" file type
+Plugin 'vim-scripts/vim-json-bundle'
+" indentLine
+Plugin 'Yggdroot/indentLine'
 " NERDtree, file browser
 Plugin 'scrooloose/nerdtree'
 " color schemes, term
@@ -103,11 +107,11 @@ nnoremap <space> za
 " Map NERDtree to CTRL+n
 nnoremap <C-n> :NERDTreeToggle<CR>
 
-
 " file encoding and format
 set encoding=utf-8
 set fileformats=unix,dos,mac
 
+let g:indentLine_char = '→'
 
 " python
 au BufNewFile,BufRead *.py
@@ -118,3 +122,18 @@ let python_highlight_all=1
 " HTML, CSS and JavaScript
 au BufNewFile,BufRead *.js, *.html, *.css
   \ set tabstop=2 softtabstop=2 shiftwidth=2
+
+" JSON
+au BufNewFile,BufRead *.json
+  \ set filetype=json autoindent formatoptions=tcq2l textwidth=78 |
+  \ set shiftwidth=2 softtabstop=2 tabstop=8 expandtab foldmethod=syntax
+"
+" augroup json_autocmd
+"   autocmd!
+"   autocmd FileType json set autoindent
+"   autocmd FileType json set formatoptions=tcq2l
+"   autocmd FileType json set textwidth=78 shiftwidth=2
+"   autocmd FileType json set softtabstop=2 tabstop=8
+"   autocmd FileType json set expandtab
+"   autocmd FileType json set foldmethod=syntax
+" augroup END
